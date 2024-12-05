@@ -134,6 +134,7 @@ public class WarGame extends Game {
         
         // Both players must have enough cards to play a "war"
         if (player1.getHand().size() < 4 || player2.getHand().size() < 4) {
+            System.out.println();
             declareWinner();
             return;
         }
@@ -177,6 +178,7 @@ public class WarGame extends Game {
     public void declareWinner() {
         
 //        Printing who won how many rounds.
+        System.out.println();
         System.out.println("Game Over!");
         System.out.println("Player 1 won " + player1hands + " rounds.");
         System.out.println("Player 2 won " + player2hands + " rounds.");

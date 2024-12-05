@@ -38,17 +38,24 @@ public class GroupOfCards {
 //    store it in an arraylist to use when the game starts.
     public GroupOfCards() {
         cards = new ArrayList<>();
-        for (Card.Suit suit : Card.Suit.values()) {
-            for (Card.Rank rank : Card.Rank.values()) {
-                cards.add(new PlayingCard(suit, rank));
-            }
-        }
+        generateDeck();
     }
     /**
      * A method that will get the group of cards as an ArrayList
      *
      * @return the group of cards.
      */
+//    THis method now calls the CardFactory method to generate the deck which is an application of the factory method from design pattern and principles.
+    private void generateDeck() {
+        for (Card.Suit suit : Card.Suit.values()) {
+            for (Card.Rank rank : Card.Rank.values()) {
+                cards.add(CardFactory.createCard(suit, rank)); // Using factory to create cards
+            }
+        }
+    }
+    
+    
+    
     public ArrayList<PlayingCard> getCards() {
         return cards;
     }
@@ -70,6 +77,14 @@ public class GroupOfCards {
      */
     public void setSize(int size) {
         this.size = size;
+    }
+    
+    public Card drawCard() {
+        if (!cards.isEmpty()) {
+            return cards.remove(0); // Removes and returns the top card
+        } else {
+            return null; // Returns null if no cards are left
+        }
     }
     
     

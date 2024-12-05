@@ -23,6 +23,7 @@ public class Projectdelivered {
 //        Starting the new game
         WarGame game = new WarGame("War Card Game");
         game.play();
-        game.declareWinner();
+
+
     }
 }

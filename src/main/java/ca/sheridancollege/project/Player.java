@@ -5,6 +5,9 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -26,6 +29,7 @@ package ca.sheridancollege.project;
 public abstract class Player {
 
     private String name; //the unique name for this player
+    private List<Card> hand;
 
     /**
      * A constructor that allows you to set the player's unique ID
@@ -34,6 +38,7 @@ public abstract class Player {
      */
     public Player(String name) {
         this.name = name;
+        this.hand = new ArrayList<>();
     }
 
     /**
@@ -57,5 +62,19 @@ public abstract class Player {
      * with logic to play your game.
      */
     public abstract void play();
+    
+    // Adds a card to the player's hand
+    public void addCardToHand(Card card) {
+        hand.add(card);
+    }
+
+    // Calculates the player's score
+    public int getScore() {
+        // Simplified score calculation logic for demonstration purposes
+        return hand.size(); // Replace with actual logic as needed
+    }   
+    
+    
+    
 
 }
